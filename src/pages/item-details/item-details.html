@@ -1,18 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <button menuToggle *ngIf="!selectedItem">
+    <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>User Details</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h3 text-center *ngIf="selectedItem">
-    {{selectedItem.title}}
-    <ion-icon [name]="selectedItem.icon"></ion-icon>
-  </h3>
-  <h4 text-center *ngIf="selectedItem">
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </h4>
+  <form (ngSubmit)="createUserSubmit(user)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>User Id</ion-label>
+        <ion-input name="userid" [(ngModel)]="user.userId" type="text" readonly></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input name="name" [(ngModel)]="user.name" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button type="submit" block>Create User</button>
+    </div>
+  </form>
+
 </ion-content>

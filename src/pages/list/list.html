@@ -3,132 +3,24 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>User List</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
   <div padding class="tree">
-
-    <ion-list padding>
-      parent
-      <ion-list>
-        test1
-      </ion-list>
-      <ion-list>
-        test2
-      </ion-list>
-      <ion-list>
-        test3
-      </ion-list>
-      <ion-list>
-        test4
-      </ion-list>
-      <ion-list>
-        test5
-      </ion-list>
-
-      <ion-list>
-        test6
-      </ion-list>
-
-      <ion-list>
-        test7
-      </ion-list>
-
-      <ion-list>
-        test8
-      </ion-list>
-
-      <ion-list>
-        test9
-      </ion-list>
-
-    </ion-list>
-    <div>
-      <ion-list>
-        test1
-      </ion-list>
-      <ion-list>
-        test2
-      </ion-list>
-      <ion-list>
-        test3
-      </ion-list>
-      <ion-list>
-        test4
-      </ion-list>
-      <ion-list>
-        test5
-      </ion-list>
-
-      <ion-list>
-        test6
-      </ion-list>
-
-      <ion-list>
-        test7
-      </ion-list>
-
-      <ion-list>
-        test8
-      </ion-list>
-
-      <ion-list>
-        test9
-      </ion-list>
-    </div>
-    <!-- <div class="tree">
-    <ul>
-      <li>
-        <a href="#">Parent</a>
-        <ul>
-          <li>
-            <a href="#">Child</a>
-            <ul>
-              <li>
-                <a href="#">Grand Child</a>
-              </li>
-              <li>
-                <a href="#">Grand Child</a>
-                <ul>
-                  <li>
-                    <a href="#">Grand Child</a>
-                  </li>
-                  <li>
-                    <a href="#">Grand Child</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Child</a>
-            <ul>
-              <li>
-                <a href="#">Grand Child</a>
-                <ul>
-                  <li>
-                    <a href="#">Grand Grand Child</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Grand Child</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul> -->
-    <!-- <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
+    <div padding *ngFor="let data of userArr">
+      {{data.userName}}({{data.userId}})
+      <div padding class="tree">
+        <ion-list *ngFor="let user1 of data.users">
+          {{user1.userName}}({{user1.userId}})
+          <div padding class="tree">
+            <ion-list *ngFor="let user2 of user1.users">
+              {{user2.userId}}
+            </ion-list>
+          </div>
+        </ion-list>
       </div>
-    </button>
-  </ion-list> -->
+    </div>
   </div>
 
 </ion-content>
