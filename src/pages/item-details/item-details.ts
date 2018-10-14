@@ -27,7 +27,11 @@ export class ItemDetailsPage {
     headers.append('Content-Type', 'application/json');
     // this.adduser = this.http.get('http://localhost/faback/index.php/json/getallcategory');
     this.http.post("http://admin.findacross.com/index.php/json/addUser", JSON.stringify(data), { headers: headers }).subscribe(data => {
-      console.log('my data: ', data);
+      console.log('user created: ', data);
+      this.user = {
+        userId: Math.floor(Math.random() * 899999 + 100000),
+        name: ''
+      }
     })
   }
 }
